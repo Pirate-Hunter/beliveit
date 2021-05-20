@@ -27,7 +27,7 @@ def get_data_from_url(url: str) -> tuple:
 
 
 @System.command(
-    e=system_cmd(pattern=r"scan ", allow_enforcer=True),
+    e=system_cmd(pattern=r"stopit ", allow_enforcer=True),
     group="main",
     help="Reply to a message WITH reason to send a request to Inspect",
     flags=[
@@ -54,7 +54,7 @@ def get_data_from_url(url: str) -> tuple:
     ],
     allow_unknown=True
 )
-async def scan(event, flags):
+async def stopit(event, flags):
     replied = await event.get_reply_message()
     if flags.r:
         reason = " ".join(flags.r)
