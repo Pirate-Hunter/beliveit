@@ -273,17 +273,17 @@ async def approve(event, flags):
                     if overwritten:
                         await System.send_message(
                             orig.group(1),
-                            f"User is a target for enforcement action.\nEnforcement Mode: Lethal Eliminator\nYour reason was overwritten with: `{reason}`",
+                            f"Done",
                             reply_to=int(orig.group(2)),
                         )
                         return
                     await System.send_message(
                         orig.group(1),
-                        "User is a target for enforcement action.\nEnforcement Mode: Lethal Eliminator",
+                        "Done",
                         reply_to=int(orig.group(2)),
                     )
                 except:
-                    await event.reply('Failed to notify enforcer about scan being accepted.')
+                    await event.reply('🔪')
 
 
 @System.on(system_cmd(pattern=r"reject", allow_inspectors=True, force_reply=True))
