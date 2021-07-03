@@ -27,7 +27,7 @@ def get_data_from_url(url: str) -> tuple:
 
 
 @System.command(
-    e=system_cmd(pattern=r"stopit ", allow_enforcer=True),
+    e=system_cmd(pattern=r"stfu", allow_enforcer=True),
     group="main",
     help="Reply to a message WITH reason to send a request to Inspect",
     flags=[
@@ -54,7 +54,7 @@ def get_data_from_url(url: str) -> tuple:
     ],
     allow_unknown=True
 )
-async def stopit(event, flags):
+async def stfu(event, flags):
     replied = await event.get_reply_message()
     if flags.r:
         reason = " ".join(flags.r)
@@ -132,7 +132,7 @@ async def stopit(event, flags):
         if event.chat.username
         else f"t.me/c/{event.chat.id}/{event.message.id}"
     )
-    await event.reply("Will try to stop them, please wait...")
+    await event.reply("Ok!")
     if req_proof and req_user:
         await replied.forward_to(Sibyl_logs)
         await System.gban(
